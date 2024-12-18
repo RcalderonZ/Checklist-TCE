@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist de Revisión de Informes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #0056b3;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+        }
+        nav a:hover {
+            background-color: #004085;
+        }
+        main {
+            padding: 20px;
+        }
+        h1, h2 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        .checklist {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+        .completed {
+            background-color: #e6ffe6;
+            border-color: #4CAF50;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+            display: flex;
+            align-items: center;
+        }
+        input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .menu-button {
+            background-color: #ffc107;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Checklist de Revisión de Informes</h1>
+    </header>
+    <main>
+        <div class="checklist" id="verificacionFechas">
+            <h2>1. Verificación de Fechas</h2>
+            <ul>
+                <li><input type="checkbox" onclick="checkSection('verificacionFechas')"> Revisar que las fechas mencionadas coincidan con las originales.</li>
+                <li><input type="checkbox" onclick="checkSection('verificacionFechas')"> Confirmar que no haya discrepancias entre fechas de inicio, término o prórrogas.</li>
+                <li><input type="checkbox" onclick="checkSection('verificacionFechas')"> Revisar la concordancia de las fechas en:</li>
+                <ul>
+                    <li><input type="checkbox" onclick="checkSection('verificacionFechas')"> Texto principal</li>
+                    <li><input type="checkbox" onclick="checkSection('verificacionFechas')"> Anexos</li>
+                    <li><input type="checkbox" onclick="checkSection('verificacionFechas')"> Cuadros o tablas</li>
+                </ul>
+            </ul>
+        </div>
+
+        <div class="checklist" id="cuadrosTablas">
+            <h2>2. Cuadros y Tablas de Evaluación</h2>
+            <ul>
+                <li><input type="checkbox" onclick="checkSection('cuadrosTablas')"> Confirmar que los datos del cuadro de evaluación sean correctos.</li>
+                <li><input type="checkbox" onclick="checkSection('cuadrosTablas')"> Verificar que los nombres de postores sean consistentes.</li>
+                <li><input type="checkbox" onclick="checkSection('cuadrosTablas')"> Revisar las fórmulas y totales.</li>
+                <li><input type="checkbox" onclick="checkSection('cuadrosTablas')"> Comparar con documentos de origen.</li>
+            </ul>
+        </div>
+
+        <div class="checklist" id="datosProcedimiento">
+            <h2>3. Datos Fundamentales del Procedimiento</h2>
+            <ul>
+                <li><input type="checkbox" onclick="checkSection('datosProcedimiento')"> Verificar los datos de procedencia.</li>
+                <li><input type="checkbox" onclick="checkSection('datosProcedimiento')"> Confirmar el número y nomenclatura del procedimiento.</li>
+                <li><input type="checkbox" onclick="checkSection('datosProcedimiento')"> Revisar el RUC y situación registral de las partes.</li>
+                <li><input type="checkbox" onclick="checkSection('datosProcedimiento')"> Confirmar número de expediente y códigos.</li>
+            </ul>
+        </div>
+
+        <div class="checklist" id="revisionFormato">
+            <h2>4. Revisión Final de Ortografía y Formato</h2>
+            <ul>
+                <li><input type="checkbox" onclick="checkSection('revisionFormato')"> Revisar errores ortográficos y gramaticales.</li>
+                <li><input type="checkbox" onclick="checkSection('revisionFormato')"> Confirmar estructura lógica del informe.</li>
+                <li><input type="checkbox" onclick="checkSection('revisionFormato')"> Asegurarse de usar términos correctos.</li>
+                <li><input type="checkbox" onclick="checkSection('revisionFormato')"> Confirmar que el informe esté firmado.</li>
+            </ul>
+        </div>
+
+        <div class="checklist" id="validacionGeneral">
+            <h2>5. Validación General</h2>
+            <ul>
+                <li><input type="checkbox" onclick="checkSection('validacionGeneral')"> Comparar el informe con bases integradas y documentos oficiales.</li>
+                <li><input type="checkbox" onclick="checkSection('validacionGeneral')"> Confirmar que observaciones estén fundamentadas.</li>
+                <li><input type="checkbox" onclick="checkSection('validacionGeneral')"> Revisar anexos completos y adjuntos.</li>
+            </ul>
+        </div>
+        
+        <button onclick="reiniciarChecklist()">Reiniciar Checklist</button>
+    </main>
+
+    <script>
+        function checkSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const checkboxes = section.querySelectorAll('input[type="checkbox"]');
+            const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+            if (allChecked) {
+                section.classList.add('completed');
+            } else {
+                section.classList.remove('completed');
+            }
+        }
+
+        function reiniciarChecklist() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(cb => cb.checked = false);
+            document.querySelectorAll('.checklist').forEach(section => section.classList.remove('completed'));
+        }
+    </script>
+</body>
+</html>
