@@ -120,8 +120,17 @@
             </ul>
         </div>
 
+        <div class="checklist" id="valorEstimadoReferencial">
+            <h2>4. Valor Estimado / Valor Referencial</h2>
+            <ul>
+                <li><input type="checkbox" onclick="checkSection('valorEstimadoReferencial')"> Verificar si el procedimiento corresponde a Valor Estimado o Valor Referencial.</li>
+                <li><input type="checkbox" onclick="checkSection('valorEstimadoReferencial')"> Revisar que el Valor Estimado / Valor Referencial sea el correcto en los antecedentes.</li>
+                <li><input type="checkbox" onclick="checkSection('valorEstimadoReferencial')"> Revisar que el Valor Estimado / Valor Referencial sea el correcto en la sección de procedencia.</li>
+            </ul>
+        </div>
+
         <div class="checklist" id="revisionFormato">
-            <h2>4. Revisión Final de Ortografía y Formato</h2>
+            <h2>5. Revisión Final de Ortografía y Formato</h2>
             <ul>
                 <li><input type="checkbox" onclick="checkSection('revisionFormato')"> Revisar errores ortográficos y gramaticales.</li>
                 <li><input type="checkbox" onclick="checkSection('revisionFormato')"> Confirmar estructura lógica del informe.</li>
@@ -130,15 +139,6 @@
             </ul>
         </div>
 
-        <div class="checklist" id="validacionGeneral">
-            <h2>5. Validación General</h2>
-            <ul>
-                <li><input type="checkbox" onclick="checkSection('validacionGeneral')"> Comparar el informe con bases integradas y documentos oficiales.</li>
-                <li><input type="checkbox" onclick="checkSection('validacionGeneral')"> Confirmar que observaciones estén fundamentadas.</li>
-                <li><input type="checkbox" onclick="checkSection('validacionGeneral')"> Revisar anexos completos y adjuntos.</li>
-            </ul>
-        </div>
-        
         <button onclick="reiniciarChecklist()">Reiniciar Checklist</button>
     </main>
 
